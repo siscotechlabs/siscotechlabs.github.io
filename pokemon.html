@@ -24,7 +24,7 @@
   
     <div class="container">
       <div class="row">
-        <button type="button" class="btn btn-primary" onclick="DameGatito()">Dame gatito</button>
+        <button type="button" class="btn btn-primary" onclick="DamePokemon()">Dame pokemon</button>
       </div>
       <div class="row">
         <div class="col" id="id">
@@ -33,7 +33,7 @@
       </div>
 
       <div class="row">
-        <div class="col" id="url">
+        <div class="col" id="name">
           One of three columns
         </div>
       </div>
@@ -47,15 +47,21 @@
 
 
     <script>
+
+        function generateRandomInt(max){
+            return Math.floor(Math.random() * max) + 1;
+        }
+
         function ajax_get(url, callback) {
+        console.log(url);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            console.log('responseText:' + xmlhttp.responseText);
+            // console.log('responseText:' + xmlhttp.responseText);
             try {
               var data = JSON.parse(xmlhttp.responseText);
             } catch (err) {
-              console.log(err.message + " in " + xmlhttp.responseText);
+            //   console.log(err.message + " in " + xmlhttp.responseText);
               return;
             }
             callback(data);
@@ -66,13 +72,14 @@
         xmlhttp.send();
       }
 
-      function DameGatito()
+      function DamePokemon()
       {
-        ajax_get('https://api.thecatapi.com/v1/images/search', function(data) {
-        document.getElementById("id").innerHTML = data[0]["id"];
-        document.getElementById("url").innerHTML = data[0]["url"];
+        ajax_get('https://pokeapi.co/api/v2/pokemon/' + generateRandomInt(200), function(data) {
+            // console.log(data);
+        document.getElementById("id").innerHTML = data["id"];
+        document.getElementById("name").innerHTML = data["name"];
 
-        var html = '<img src="' + data[0]["url"] + '" max-height="350px" contain>';
+        var html = '<img src="' + data["sprites"]["other"]["official-artwork"]["front_default"] + '" max-height="350px" contain>';
         document.getElementById("image").innerHTML = html;
       });
       }
