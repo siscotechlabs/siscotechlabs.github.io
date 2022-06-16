@@ -6,86 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <style>
-      img {
-        display: block;
-        max-width:500px;
-        /* max-height:95px; */
-        width: auto;
-        height: auto;
-      }
-    </style>
-
-    <title>SISCO TechLabs</title>
+    <title>Hello, world!</title>
   </head>
   <body>
-  
-    <div class="container">
-      <div class="row">
-        <button type="button" class="btn btn-primary" onclick="DameGatito()">Dame gatito</button>
-      </div>
-      <div class="row">
-        <div class="col" id="id">
-          One of three columns
+    <br><br>
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="card">
+          <img src="images/TechLabs Logo.png" class="card-img-top" alt="TechLabs Logo.png" style="width: 600px;;">
+          <div class="card-body">
+            <br>
+            <h3 class="card-title">Privacy Policy</h3>
+            <br>
+            <p class="card-text">This privacy policy governs your use of the software application Mi Tranvi for Android mobile devices that was created by SISCO TechLabs.</p>
+            <p class="card-text">What information we collect?
+              Application does not collect personal information like name, surname, age, date of birth,etc.
+              We use Google supplied APP performance tracking information to improve Application. </p>
+            <p class="card-text"><strong>Google Analytics</strong></p>
+            <ul>
+              <li>This Application uses Google Analytics to help us analyse how you use app. It help us to improve this product.</li>
+              <li>Thanks Google Analytics we know how long you use app, what kind of device you're using, where are you from and a little bit more. All this is used to improve the app.</li>
+              <li>Read more about Google Analytics</li>
+            </ul>
+            <p class="card-text"><strong>Advertisement</strong></p>
+            <p class="card-text">Google Admob privacy policy is here: https://support.google.com/admob/answer/6128543?hl=en.</p>
+            <ul>
+              <li>Third party vendors, including Google, use cookies to serve ads based on a user's prior visits to your website.</li>
+              <li>Google's use of the DoubleClick cookie enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.</li>
+              <li>Users may opt out of the use of the DoubleClick cookie for interest-based advertising by visiting Ads Settings. (Alternatively, you can direct users to opt out of a third-party vendor's use of cookies for interest based advertising by visiting aboutads.info.)</li>
+            </ul>
+            <p class="card-text"><strong>Contact</strong></p>
+            <p class="card-text">To contact us please use email: siscotechlabs@outlook.com</p>
+            <br>
+            <a href="https://play.google.com/store/apps/details?id=com.siscotechlabs.mi_tranvi" class="btn btn-primary">Mi Tranvi</a>
+          </div>
         </div>
       </div>
-
-      <div class="row">
-        <div class="col" id="url">
-          One of three columns
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col" id="image">
-          One of three columns
-        </div>
-      </div>
+      <div class="col-md-2"></div>
     </div>
 
 
-    <script>
-        function ajax_get(url, callback) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            console.log('responseText:' + xmlhttp.responseText);
-            try {
-              var data = JSON.parse(xmlhttp.responseText);
-            } catch (err) {
-              console.log(err.message + " in " + xmlhttp.responseText);
-              return;
-            }
-            callback(data);
-          }
-        };
-
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-      }
-
-      function DameGatito()
-      {
-        ajax_get('https://api.thecatapi.com/v1/images/search', function(data) {
-        document.getElementById("id").innerHTML = data[0]["id"];
-        document.getElementById("url").innerHTML = data[0]["url"];
-
-        var html = '<img src="' + data[0]["url"] + '" max-height="350px" contain>';
-        document.getElementById("image").innerHTML = html;
-      });
-      }
-
-      
-
-    </script>
-
-
+    
     
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-   
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
